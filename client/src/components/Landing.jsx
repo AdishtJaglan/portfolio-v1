@@ -18,22 +18,22 @@ export default function Landing() {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <div className="flex flex-col leading-none">
-          <motion.span
-            className="text-dark dark:text-light tracking-none text-[10rem] font-black"
+          <motion.div
+            className="text-dark dark:text-light montserrat text-[9.5rem] font-black"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
           >
             HE
-          </motion.span>
-          <motion.span
-            className="text-dark dark:text-light tracking-none text-[10rem] font-black"
+          </motion.div>
+          <motion.div
+            className="text-dark dark:text-light montserrat -mt-[0.2em] text-[9.5rem] font-black"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 1 }}
           >
-            LLO<span className="text-theme-1">.</span>
-          </motion.span>
+            LLO<span className="text-theme-1 montserrat">.</span>
+          </motion.div>
         </div>
       </motion.div>
       <ScrollIndicator />
