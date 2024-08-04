@@ -1,9 +1,12 @@
+import PropTypes from "prop-types";
 import pfp from "/placeholder-pfp.jpg";
 import SkillsSection from "./SkillSection";
 
-export default function AboutHidden() {
+export default function AboutHidden({ visible }) {
   return (
-    <div className="flex h-[95vh] w-full items-center justify-end gap-12 bg-light dark:bg-dark">
+    <div
+      className={`flex h-[95vh] w-full items-center justify-end gap-12 bg-light ${visible ? "opacity-1" : "opacity-0"} transition-opacity duration-500 dark:bg-dark`}
+    >
       <div className="mx-6 flex h-full flex-col items-center justify-center">
         <div className="my-6 rounded-full border-2 border-theme-2 bg-light p-2 dark:bg-dark">
           <img src={pfp} className="h-auto w-72 rounded-full" />
@@ -33,3 +36,7 @@ export default function AboutHidden() {
     </div>
   );
 }
+
+AboutHidden.propTypes = {
+  visible: PropTypes.bool.isRequired,
+};

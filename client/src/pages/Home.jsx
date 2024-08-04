@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   const [showMore, setShowMore] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [themeColor, setThemeColor] = useState([
     "group-hover:text-theme-1",
     "group-hover:bg-theme-1",
@@ -14,6 +15,7 @@ export default function Home() {
   ]);
 
   const handleClick = () => {
+    setIsVisible(!isVisible);
     setShowMore(!showMore);
   };
 
@@ -60,7 +62,7 @@ export default function Home() {
         className="relative h-[95vh] w-full bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark"
       >
         <About showMore={showMore} handleClick={handleClick} />
-        {showMore && <AboutHidden />}
+        {setTimeout(() => showMore, 100) && <AboutHidden visible={isVisible} />}
       </section>
       <Footer textColor={themeColor} />
     </>
