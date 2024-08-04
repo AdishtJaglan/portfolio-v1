@@ -11,22 +11,25 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-light dark:bg-dark fixed left-0 top-0 z-50 flex w-full items-center justify-between px-8 pb-2 pt-4">
-      <p className="text-dark dark:text-light ml-4 text-3xl font-bold tracking-tight">
-        Adisht Jaglan
+    <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-light px-4 py-4 dark:bg-dark sm:px-8">
+      <p className="text-xl font-bold tracking-tight text-dark dark:text-light sm:ml-4 md:text-3xl">
+        adisht jaglan
       </p>
 
-      <div className="group mr-4 flex w-28 items-center justify-between">
+      <div className="group flex items-center justify-between gap-4 sm:mr-4 lg:w-28">
         <span onClick={() => handleClick()}>
           {darkMode ? (
-            <FiSun className="text-light group-hover:text-theme-1 h-auto w-8 cursor-pointer transition duration-500" />
+            <FiSun className="xs:w-5 h-auto w-5 cursor-pointer text-light transition duration-500 group-hover:text-theme-1 sm:w-6 lg:w-7" />
           ) : (
-            <FiMoon className="text-dark group-hover:text-theme-1 h-auto w-8 cursor-pointer transition duration-500" />
+            <FiMoon className="xs:w-5 h-auto w-5 cursor-pointer text-dark transition duration-500 group-hover:text-theme-1 sm:w-6 lg:w-7" />
           )}
         </span>
 
-        <div className="bg-dark group-hover:bg-theme-1 dark:bg-light rounded-full p-1 transition duration-500">
-          <img src={pfp} className="h-auto w-12 rounded-full" />
+        <div className="xs:p-1 rounded-full bg-dark p-[0.15rem] transition duration-500 group-hover:bg-theme-1 dark:bg-light">
+          <img
+            src={pfp}
+            className="xs:w-10 h-auto w-7 rounded-full sm:w-9 md:w-10 lg:w-12"
+          />
         </div>
       </div>
     </nav>

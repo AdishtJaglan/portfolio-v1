@@ -2,15 +2,15 @@ import { PiCopyright } from "react-icons/pi";
 
 export default function Footer() {
   return (
-    <footer className="bg-light dark:bg-dark fixed bottom-0 z-50 flex w-full items-center justify-center gap-2 p-2">
+    <footer className="fixed bottom-0 z-50 flex w-full items-center justify-center gap-2 bg-light p-2 dark:bg-dark">
       <div className="flex items-center justify-center gap-1">
-        <PiCopyright className="text-theme-1 h-auto w-4" />
-        <span className="text-theme-1 text-sm font-thin no-underline">
+        <PiCopyright className="h-auto w-4 text-theme-1" />
+        <span className="text-sm font-thin text-theme-1 no-underline">
           2024
         </span>
       </div>
-      <p className="dark:text-light text-dark cursor-pointer text-sm font-thin underline">
-        Adisht Jaglan
+      <p className="cursor-pointer text-sm font-thin text-dark underline dark:text-light">
+        adisht jaglan
       </p>
     </footer>
   );
