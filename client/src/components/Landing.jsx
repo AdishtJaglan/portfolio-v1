@@ -37,7 +37,7 @@ export default function Landing() {
         </div>
       </motion.div>
       <ScrollIndicator />
-      <div className="lg:top-22 fixed bottom-12 right-4 z-10 flex flex-col gap-4 lg:bottom-auto lg:left-auto lg:right-4">
+      <div className="lg:top-22 absolute bottom-12 right-4 z-10 flex flex-col gap-4 lg:bottom-auto lg:left-auto lg:right-4">
         <a
           target="_blank"
           rel="noopener noreferrer"

@@ -11,7 +11,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-light px-4 py-4 dark:bg-dark sm:px-8">
+    <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-light px-4 py-4 transition-colors duration-300 dark:bg-dark sm:px-8">
       <p className="text-xl font-bold tracking-tight text-dark dark:text-light sm:ml-4 md:text-3xl">
         adisht jaglan
       </p>

@@ -10,7 +10,7 @@ export default function ScrollIndicator() {
       transition={{ duration: 1, delay: 2 }}
     >
       <motion.p
-        className="text-dark dark:text-light -rotate-90 text-lg font-light"
+        className="-rotate-90 text-lg font-light text-dark dark:text-light"
         animate={{ rotate: [-90, -85, -90] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -20,7 +20,7 @@ export default function ScrollIndicator() {
         animate={{ y: [0, 5, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <IoIosArrowRoundDown className="text-dark dark:text-light h-auto w-7" />
+        <IoIosArrowRoundDown className="h-auto w-7 text-dark dark:text-light" />
       </motion.div>
     </motion.div>
   );
