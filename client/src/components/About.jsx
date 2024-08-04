@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { IoIosArrowRoundDown } from "react-icons/io";
 import PropTypes from "prop-types";
 import Skill from "./Skill";
 
@@ -12,7 +13,7 @@ export default function About({ showMore, handleClick }) {
         <div className="flex h-full w-[95vw]">
           <div className="ml-[2.3rem] w-1/4 bg-light dark:bg-theme-2"></div>
           <div
-            className={`flex w-3/4 flex-col items-center justify-center bg-theme-2 p-8 transition-opacity duration-700 dark:bg-dark ease-in ${showMore ? "opacity-60" : ""} `}
+            className={`flex w-3/4 flex-col items-center justify-center bg-theme-2 p-8 transition-opacity duration-700 ease-in dark:bg-dark ${showMore ? "opacity-60" : ""} `}
           >
             <div className="ml-[7rem] flex w-full max-w-2xl flex-col justify-center space-y-6">
               <p className="text-3xl font-bold tracking-wider text-dark dark:text-light">
@@ -34,6 +35,27 @@ export default function About({ showMore, handleClick }) {
             </div>
           </div>
         </div>
+        
+        <motion.div
+          className="absolute bottom-12 left-[23%]  z-10 flex flex-col items-center justify-evenly gap-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <motion.p
+            className="-rotate-90 text-lg font-light text-dark dark:text-light"
+            animate={{ rotate: [-90, -85, -90] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            scroll
+          </motion.p>
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <IoIosArrowRoundDown className="h-auto w-7 text-dark dark:text-light" />
+          </motion.div>
+        </motion.div>
 
         <motion.div
           onClick={() => handleClick()}
