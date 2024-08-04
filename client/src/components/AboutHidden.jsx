@@ -1,23 +1,5 @@
-import { Icon } from "@iconify/react";
-import html5Icon from "@iconify-icons/logos/html-5";
-import css3Icon from "@iconify-icons/logos/css-3";
-import javascriptIcon from "@iconify-icons/logos/javascript";
-import pythonIcon from "@iconify-icons/logos/python";
-import cIcon from "@iconify-icons/logos/c";
-import reactIcon from "@iconify/icons-logos/react.js";
-import webpackIcon from "@iconify/icons-logos/webpack";
-import djangoIcon from "@iconify/icons-logos/django";
-import nodeIcon from "@iconify/icons-logos/nodejs";
-import bootstrapIcon from "@iconify/icons-logos/bootstrap";
-import tailwindIcon from "@iconify/icons-logos/tailwindcss-icon";
-import expressIcon from "@iconify/icons-logos/express";
-import postgresIcon from "@iconify/icons-logos/postgresql";
-import mongoIcon from "@iconify/icons-logos/mongodb";
-import jestIcon from "@iconify/icons-logos/jest";
-import gitIcon from "@iconify/icons-logos/git-icon";
-import mysqlIcon from "@iconify/icons-logos/mysql";
-import cppIcon from "@iconify/icons-logos/c-plusplus";
 import pfp from "/placeholder-pfp.jpg";
+import SkillsSection from "./SkillSection";
 
 export default function AboutHidden() {
   return (
@@ -46,45 +28,7 @@ export default function AboutHidden() {
           internship opportunities.
         </p>
 
-        <div className="my-5 flex flex-col items-start justify-center">
-          <p className="my-2 text-lg font-bold text-dark dark:text-light">
-            Languages
-          </p>
-          <div className="flex items-center justify-start gap-4">
-            <Icon icon={html5Icon} className="h-auto w-8" />
-            <Icon icon={css3Icon} className="h-auto w-8" />
-            <Icon icon={javascriptIcon} className="h-auto w-8" />
-            <Icon icon={cIcon} className="h-auto w-8" />
-            <Icon icon={pythonIcon} className="h-auto w-8" />
-          </div>
-        </div>
-        <div className="my-5 flex flex-col items-start justify-center">
-          <p className="my-2 text-lg font-bold text-dark dark:text-light">
-            Frameworks and Libraries
-          </p>
-          <div className="flex items-center justify-start gap-4">
-            <Icon icon={reactIcon} className="h-auto w-8" />
-            <Icon icon={webpackIcon} className="h-auto w-8" />
-            <Icon icon={djangoIcon} className="h-auto w-8" />
-            <Icon icon={nodeIcon} className="h-auto w-8" />
-            <Icon icon={bootstrapIcon} className="h-auto w-8" />
-            <Icon icon={tailwindIcon} className="h-auto w-8" />
-            <Icon icon={expressIcon} className="h-auto w-8" />
-          </div>
-        </div>
-        <div className="my-5 flex flex-col items-start justify-center">
-          <p className="my-2 text-lg font-bold text-dark dark:text-light">
-            Others
-          </p>
-          <div className="flex items-center justify-start gap-4">
-            <Icon icon={postgresIcon} className="h-auto w-8" />
-            <Icon icon={mongoIcon} className="h-auto w-8" />
-            <Icon icon={jestIcon} className="h-auto w-8" />
-            <Icon icon={gitIcon} className="h-auto w-8" />
-            <Icon icon={mysqlIcon} className="h-auto w-8" />
-            <Icon icon={cppIcon} className="h-auto w-8" />
-          </div>
-        </div>
+        <SkillsSection />
       </div>
     </div>
   );
