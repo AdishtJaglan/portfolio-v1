@@ -35,9 +35,9 @@ export default function About({ showMore, handleClick }) {
             </div>
           </div>
         </div>
-        
+
         <motion.div
-          className="absolute bottom-12 left-[23%]  z-10 flex flex-col items-center justify-evenly gap-2"
+          className="absolute bottom-12 left-[23%] z-10 flex flex-col items-center justify-evenly gap-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
