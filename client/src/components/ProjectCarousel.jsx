@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { IoIosArrowRoundUp } from "react-icons/io";
+import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import img1 from "/admin-dashboard.png";
 import img2 from "/clothing.png";
@@ -123,6 +125,10 @@ export default function ProjectCarousel() {
     },
   ];
 
+  const handleTopArrowClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="relative flex h-[100%] w-full items-center justify-center">
       <div className="absolute inset-0 flex items-center justify-center">
@@ -139,6 +145,35 @@ export default function ProjectCarousel() {
                 JECTS<span className="text-light dark:text-theme-3">.</span>
               </p>
             </div>
+            <motion.div
+              className="absolute bottom-12 left-0 z-10 flex cursor-pointer flex-col items-center justify-evenly gap-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 2 }}
+              onClick={() => handleTopArrowClick()}
+            >
+              <motion.div
+                animate={{ y: [0, 5, 0] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <IoIosArrowRoundUp className="h-auto w-10 text-dark dark:text-light" />
+              </motion.div>
+              <motion.p
+                className="text-lg font-light text-dark dark:text-light"
+                animate={{ rotate: [90, 85, 90] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                top
+              </motion.p>
+            </motion.div>
           </div>
         </div>
       </div>
