@@ -60,21 +60,21 @@ function Carousel({ images }) {
               }`}
             >
               <div className="relative h-full w-full">
-                <span className="absolute left-4 top-4 z-50 text-8xl font-black text-black transition-opacity duration-300 group-hover:opacity-0 dark:text-light">
+                <span className="absolute left-4 top-4 z-40 text-8xl font-black text-black transition-opacity duration-300 group-hover:opacity-0">
                   0{1 + index}
                 </span>
-                <p className="absolute inset-0 z-50 flex items-center justify-center text-5xl font-black text-black transition-opacity duration-300 group-hover:opacity-0 dark:text-light">
+                <p className="absolute inset-0 z-40 flex items-center justify-center text-5xl font-black text-black transition-opacity duration-300 group-hover:opacity-0">
                   {image.name}
                 </p>
                 <FaChevronLeft
                   onClick={handlePrevClick}
-                  className="dark:hover:text-black-60 absolute left-0 top-1/2 z-50 h-auto w-16 -translate-y-1/2 cursor-pointer bg-black/40 p-3 text-white/35 transition-opacity duration-300 hover:bg-black/60 hover:text-white/45 dark:bg-white/35 dark:text-black/40 dark:hover:bg-white/55"
+                  className="dark:hover:text-black-60 absolute left-0 top-1/2 z-40 h-auto w-16 -translate-y-1/2 cursor-pointer bg-black/40 p-3 text-white/35 transition-opacity duration-300 hover:bg-black/60 hover:text-white/45 dark:bg-white/35 dark:text-black/40 dark:hover:bg-white/55"
                 />
                 <FaChevronRight
                   onClick={handleNextClick}
-                  className="dark:hover:text-black-60 absolute right-0 top-1/2 z-50 h-auto w-16 -translate-y-1/2 cursor-pointer bg-black/40 p-3 text-white/35 transition-opacity duration-300 hover:bg-black/60 hover:text-white/45 dark:bg-white/35 dark:text-black/40 dark:hover:bg-white/55"
+                  className="dark:hover:text-black-60 absolute right-0 top-1/2 z-40 h-auto w-16 -translate-y-1/2 cursor-pointer bg-black/40 p-3 text-white/35 transition-opacity duration-300 hover:bg-black/60 hover:text-white/45 dark:bg-white/35 dark:text-black/40 dark:hover:bg-white/55"
                 />
-                <div className="absolute inset-0 z-40 h-full w-full rounded-lg bg-light opacity-40 transition-opacity duration-300 dark:bg-black"></div>
+                <div className="absolute inset-0 z-30 h-full w-full rounded-lg bg-white opacity-40 transition-opacity duration-300 dark:bg-dark"></div>
                 <img
                   src={image.img}
                   alt={`Slide ${index + 1}`}

@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 import Landing from "../components/Landing";
 import About from "../components/About";
 import AboutHidden from "../components/AboutHidden";
-// import Projects from "../components/Projects";
 import ProjectCarousel from "../components/ProjectCarousel";
 import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
 
 export default function Home() {
   const [showMore, setShowMore] = useState(false);
@@ -14,6 +14,7 @@ export default function Home() {
     "group-hover:text-theme-1",
     "group-hover:bg-theme-1",
     "text-theme-1",
+    "bg-theme-1",
   ]);
 
   const handleClick = () => {
@@ -39,18 +40,21 @@ export default function Home() {
             "group-hover:text-theme-3",
             "group-hover:bg-theme-3",
             "text-theme-3",
+            "bg-theme-3",
           ]);
         } else if (scrollPosition >= aboutSectionOffset + 50) {
           setThemeColor([
             "group-hover:text-theme-2",
             "group-hover:bg-theme-2",
             "text-theme-2",
+            "bg-theme-2",
           ]);
         } else {
           setThemeColor([
             "group-hover:text-theme-1",
             "group-hover:bg-theme-1",
             "text-theme-1",
+            "bg-theme-1",
           ]);
         }
       }
@@ -66,7 +70,11 @@ export default function Home() {
   return (
     <>
       <Navbar hoverColor={themeColor} />
-      <main className="h-full bg-light p-3 px-0 pt-[65px] transition-colors duration-300 dark:bg-dark md:pt-[90px]">
+      <Sidebar accentColor={themeColor} />
+      <main
+        id="landing-section"
+        className="h-full bg-light p-3 px-0 pt-[65px] transition-colors duration-300 dark:bg-dark md:pt-[90px]"
+      >
         <Landing />
       </main>
 
