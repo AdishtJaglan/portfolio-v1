@@ -131,12 +131,29 @@ export default function Sidebar({ accentColor }) {
                 </p>
                 <div className="absolute bottom-0 left-0 right-0 top-1/3 z-10 h-1/3 w-0 bg-theme-3 transition-all duration-500 group-hover:w-full"></div>
               </div>
+              <div
+                onClick={() => handleNavClick("contact-section")}
+                className={`${accentColor[2] === "text-theme-4" ? "" : "group"} relative`}
+              >
+                <p
+                  className={`relative z-20 my-2 inline-block ${accentColor[2] === "text-theme-4" ? "text-gray-500" : "text-dark dark:text-light"} cursor-pointer text-4xl font-extrabold tracking-wide`}
+                >
+                  CONTACT
+                  {accentColor[2] === "text-theme-4" ? (
+                    <span
+                      className={`${accentColor[2]} text-4xl font-extrabold`}
+                    >
+                      .
+                    </span>
+                  ) : (
+                    <></>
+                  )}
+                </p>
+                <div className="bg-theme-4 absolute bottom-0 left-0 right-0 top-1/3 z-10 h-1/3 w-0 transition-all duration-500 group-hover:w-full"></div>
+              </div>
             </div>
 
             <div>
-              <p className="my-2 text-2xl font-bold tracking-wide text-dark dark:text-light">
-                <span className={`${accentColor[2]}`}>C</span>ONTACT
-              </p>
               <p className="my-3 text-lg font-thin tracking-wide text-dark dark:text-light">
                 ADISHT JAGLAN
               </p>

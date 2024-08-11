@@ -27,16 +27,28 @@ export default function Home() {
     const handleScroll = () => {
       const aboutSection = document.querySelector("#about-section");
       const projectSection = document.querySelector("#project-section");
+      const contactSection = document.querySelector("#contact-section");
 
-      if (aboutSection && projectSection) {
+      if (aboutSection && projectSection && contactSection) {
         const aboutSectionTop = aboutSection.getBoundingClientRect().top;
         const aboutSectionOffset = window.scrollY + aboutSectionTop;
-        const scrollPosition = window.scrollY + window.innerHeight / 2;
 
         const projectSectionTop = projectSection.getBoundingClientRect().top;
         const projectSectionOffset = window.scrollY + projectSectionTop;
 
-        if (scrollPosition >= projectSectionOffset + 150) {
+        const contactSectionTop = contactSection.getBoundingClientRect().top;
+        const contactSectionOffset = window.scrollY + contactSectionTop;
+
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+        if (scrollPosition >= contactSectionOffset) {
+          setThemeColor([
+            "group-hover:text-theme-4",
+            "group-hover:bg-theme-4",
+            "text-theme-4",
+            "bg-theme-4",
+          ]);
+        } else if (scrollPosition >= projectSectionOffset + 150) {
           setThemeColor([
             "group-hover:text-theme-3",
             "group-hover:bg-theme-3",
@@ -93,7 +105,7 @@ export default function Home() {
       >
         <ProjectCarousel />
       </section>
-      
+
       <section
         id="contact-section"
         className="relative h-[95vh] w-full bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark"
