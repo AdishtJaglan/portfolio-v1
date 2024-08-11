@@ -4,6 +4,7 @@ import Landing from "../components/Landing";
 import About from "../components/About";
 import AboutHidden from "../components/AboutHidden";
 import ProjectCarousel from "../components/ProjectCarousel";
+import ContactMeForm from "../components/ContactMeForm";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 
@@ -91,6 +92,13 @@ export default function Home() {
         className="relative h-[95vh] w-full bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark"
       >
         <ProjectCarousel />
+      </section>
+      
+      <section
+        id="contact-section"
+        className="relative h-[95vh] w-full bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark"
+      >
+        <ContactMeForm />
       </section>
       <Footer textColor={themeColor} />
     </>

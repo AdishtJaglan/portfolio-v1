@@ -8,6 +8,7 @@ export default {
         "theme-1": "#f87171",
         "theme-2": "#facc15",
         "theme-3": "#0ea5e9",
+        "theme-4":"#65a30d",
         light: "#f1f5f9",
         dark: "#27272a",
       },
