@@ -12,20 +12,20 @@ const transporter = createTransport({
   },
 });
 
-export const sendMeMail = async (mailOptions) => {
+export const sendMail = async (mailOptions) => {
   try {
     await transporter.sendMail(mailOptions);
     console.log("Email has been sent.");
   } catch (error) {
-    console.log("Error sending self email: " + error.message);
+    console.log("Error sending email: " + error.message);
   }
 };
 
-export const sendUserMail = async (mailOptions) => {
-  try {
-    await transporter.sendMail(mailOptions);
-    console.log("Email has been sent.");
-  } catch (error) {
-    console.log("Error sending user email: " + error.message);
-  }
-};
+// export const sendUserMail = async (mailOptions) => {
+//   try {
+//     await transporter.sendMail(mailOptions);
+//     console.log("Email has been sent to user.");
+//   } catch (error) {
+//     console.log("Error sending user email: " + error.message);
+//   }
+// };

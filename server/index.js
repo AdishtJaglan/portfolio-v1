@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import User from "./models/User.js";
-import { sendMeMail, sendUserMail } from "./scripts/sendMail.js";
+import { sendMail } from "./scripts/sendMail.js";
 
 const app = express();
 
@@ -23,63 +23,74 @@ app.post("/send-message", async (req, res) => {
     const { username, email, message, phoneNo } = req.body;
 
     if (!username || !email || !message || !phoneNo) {
-      return res.status(400).json({ message: "All fields mandatory." });
+      return res.status(400).json({ message: "All fields are mandatory." });
     }
 
-    const user = new User({
-      username,
-      email,
-      phoneNo,
-      message,
-    });
+    const user = await findOrCreateUser(username, email, phoneNo, message);
 
-    await user.save();
-    await Promise.all(
-      sendMeMail({
-        from: {
-          name: "Adisht Portfolio",
-          address: process.env.USER_EMAIL,
-        },
-        to: "adisht7524@gmail.com",
-        subject: "Message From Portfolio",
-        text: `
-      ${username} has tried to contact you and sent you a message!
-      The below message was attached to the email:-
-      ${message}
+    await Promise.all([
+      sendMeMail(username, email, phoneNo, message),
+      sendUserMail(username, email),
+    ]);
 
-      You can contact them at ${email} and ${phoneNo}
-      `,
-      }),
-      sendUserMail({
-        from: {
-          name: "Adisht Jaglan",
-          address: process.env.USER_EMAIL,
-        },
-        to: `${email}`,
-        subject: "Thanks for contacting me!",
-        text: `
-      Hi there ${username}!       
-      Thank you for reaching out to me. I have received your message and 
-      I will get back to your shortly.
-      Regards,
-      Adisht Jaglan.
-      `,
-      })
-    );
+    const responseMessage = user.isNew
+      ? "Message sent successfully! User registered."
+      : "Message sent successfully!";
 
-    if (user) {
-      return res
-        .status(200)
-        .json({ message: "Message sent successfully!", user });
-    } else {
-      return res.status(400).json({ message: "Message not sent." });
-    }
+    res.status(200).json({ message: responseMessage });
   } catch (error) {
-    return res.status(500).json({
-      message: "Error occured while trying to send message: " + error.message,
+    console.error("Error occurred:", error);
+    res.status(500).json({
+      message: "Error occurred while trying to send message: " + error.message,
     });
   }
 });
+
+async function findOrCreateUser(username, email, phoneNo, message) {
+  let user = await User.findOne({ email });
+  if (!user) {
+    user = new User({ username, email, phoneNo, message });
+    await user.save();
+    user.isNew = true;
+  }
+  return user;
+}
+
+async function sendMeMail(username, email, phoneNo, message) {
+  await sendMail({
+    from: {
+      name: "Adisht Portfolio",
+      address: process.env.USER_EMAIL,
+    },
+    to: "adisht7524@gmail.com",
+    subject: "Message From Portfolio",
+    text: `
+    ${username} has tried to contact you and sent you a message!
+    The below message was attached to the email:-
+    ${message}
+
+    You can contact them at ${email} and ${phoneNo}
+    `,
+  });
+}
+
+async function sendUserMail(username, email) {
+  await sendMail({
+    from: {
+      name: "Adisht Jaglan",
+      address: process.env.USER_EMAIL,
+    },
+    to: email,
+    subject: "Thanks for contacting me!",
+    text: `
+    Hi there ${username}!       
+    Thank you for reaching out to me. I have received your message and 
+    I will get back to you shortly.
+    Regards,
+    Adisht Jaglan.
+    `,
+  });
+}
 
 app.listen(3000, () => {
   console.log("Listening on port 3000");
