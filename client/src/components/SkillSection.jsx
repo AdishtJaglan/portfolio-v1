@@ -49,21 +49,27 @@ const SkillsSection = () => {
       {Object.entries(skills).map(([category, items], index) => (
         <div
           key={category}
-          className="flex flex-col items-start justify-center"
+          className={`flex flex-col items-start justify-center ${
+            category === "Others" ? "hidden xl:flex" : ""
+          }`}
         >
           <p
-            className={`${index === 0 ? "mt-0" : "mt-6"} text-lg font-bold text-dark dark:text-light`}
+            className={`${
+              index === 0 ? "mt-0" : "mt-4 lg:mt-6"
+            } text-base font-bold text-dark dark:text-light sm:text-lg`}
           >
             {category}
           </p>
-          <div className="flex flex-wrap items-end justify-start gap-4">
+          <div className="mt-2 flex flex-wrap items-end justify-start gap-3 sm:gap-4">
             {items.map((item) => (
               <div key={item.name} className="flex flex-col items-center">
                 <Icon
                   icon={item.icon}
-                  className={`h-auto ${item.name === "MongoDB" ? "w-4" : "w-8"} `}
+                  className={`h-auto ${
+                    item.name === "MongoDB" ? "w-3 sm:w-4" : "w-6 sm:w-8"
+                  }`}
                 />
-                <span className="mt-1 text-xs text-dark dark:text-light">
+                <span className="mt-1 text-xs text-dark dark:text-light sm:text-xs">
                   {item.name}
                 </span>
               </div>

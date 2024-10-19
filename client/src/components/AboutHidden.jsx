@@ -11,7 +11,8 @@ export default function AboutHidden({ visible }) {
               How I Started
             </p>
             <p className="my-4 mt-0 text-xl font-extralight tracking-wider text-dark dark:text-light">
-              Hi, I am Adisht Jaglan, a dedicated Software Engineer from India.
+              Hi, I am Adisht Jaglan, a dedicated Software Development Engineer
+              from India.
             </p>
             <p className="my-4 text-lg font-extralight tracking-wider text-dark dark:text-light">
               I have been deeply immersed in coding and software development

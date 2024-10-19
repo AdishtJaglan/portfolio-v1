@@ -2,11 +2,35 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Landing from "../components/Landing";
 import About from "../components/About";
+import AboutMobileView from "../components/AboutMobileView";
 import AboutHidden from "../components/AboutHidden";
 import ProjectCarousel from "../components/ProjectCarousel";
 import ContactMeForm from "../components/ContactMeForm";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
+
+const useWindowSize = () => {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowSize;
+};
 
 export default function Home() {
   const [showMore, setShowMore] = useState(false);
@@ -17,6 +41,8 @@ export default function Home() {
     "text-theme-1",
     "bg-theme-1",
   ]);
+  const { width } = useWindowSize();
+  const breakpoint = 748;
 
   const handleClick = () => {
     setIsVisible(!isVisible);
@@ -93,10 +119,20 @@ export default function Home() {
 
       <section
         id="about-section"
-        className="relative h-[95vh] bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]"
+        className={`relative ${width < breakpoint ? "h-[180vh]" : "h-[90vh]"} bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]`}
       >
-        <About showMore={showMore} handleClick={handleClick} />
-        {setTimeout(() => showMore, 100) && <AboutHidden visible={isVisible} />}
+        {width < breakpoint ? (
+          <>
+            <AboutMobileView />
+          </>
+        ) : (
+          <>
+            <About showMore={showMore} handleClick={handleClick} />
+            {setTimeout(() => showMore, 100) && (
+              <AboutHidden visible={isVisible} />
+            )}
+          </>
+        )}
       </section>
 
       <section
