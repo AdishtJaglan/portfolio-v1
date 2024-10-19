@@ -4,7 +4,7 @@ import ScrollIndicator from "./ScrollIndicator";
 
 export default function Landing() {
   return (
-    <div className="relative flex h-[100%] w-full items-center justify-center">
+    <div className="relative flex h-[100%] min-h-[85vh] w-full items-center justify-center">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="flex h-full w-[100%] xl:w-[95%]">
           <div className="w-1/2 bg-theme-1"></div>
@@ -12,7 +12,7 @@ export default function Landing() {
         </div>
       </div>
       <motion.div
-        className="relative z-10"
+        className="relative z-10 ml-6"
         initial={{ y: "100%", opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -43,14 +43,14 @@ export default function Landing() {
           rel="noopener noreferrer"
           href="https://github.com/AdishtJaglan/"
         >
-          <FaGithub className="h-auto xs:w-8 w-6 cursor-pointer text-2xl text-dark transition-all duration-300 hover:scale-110 dark:text-light" />
+          <FaGithub className="h-auto w-6 cursor-pointer text-2xl text-dark transition-all duration-300 hover:scale-110 dark:text-light xs:w-8" />
         </a>
         <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.linkedin.com/in/adisht-jaglan-92441b1b8/"
         >
-          <FaLinkedin className="h-auto xs:w-8 w-6 cursor-pointer text-2xl text-dark transition-all duration-300 hover:scale-110 dark:text-light" />
+          <FaLinkedin className="h-auto w-6 cursor-pointer text-2xl text-dark transition-all duration-300 hover:scale-110 dark:text-light xs:w-8" />
         </a>
       </div>
     </div>

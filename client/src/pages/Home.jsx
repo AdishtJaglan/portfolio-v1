@@ -81,19 +81,19 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <main className="min-w-screen min-h-screen">
       <Navbar hoverColor={themeColor} />
       <Sidebar accentColor={themeColor} />
-      <main
+      <section
         id="landing-section"
-        className="h-full bg-light p-3 px-0 pt-[65px] transition-colors duration-300 dark:bg-dark md:pt-[90px]"
+        className="min-h-screen bg-light p-3 px-0 pt-[85px] transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]"
       >
         <Landing />
-      </main>
+      </section>
 
       <section
         id="about-section"
-        className="relative h-[95vh] w-full bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark"
+        className="relative h-[95vh] bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]"
       >
         <About showMore={showMore} handleClick={handleClick} />
         {setTimeout(() => showMore, 100) && <AboutHidden visible={isVisible} />}
@@ -101,18 +101,18 @@ export default function Home() {
 
       <section
         id="project-section"
-        className="relative h-[95vh] w-full bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark"
+        className="relative h-[95vh] bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]"
       >
         <ProjectCarousel />
       </section>
 
       <section
         id="contact-section"
-        className="relative h-[95vh] w-full bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark"
+        className="relative h-[95vh] bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]"
       >
         <ContactMeForm />
       </section>
       <Footer textColor={themeColor} />
-    </>
+    </main>
   );
 }
