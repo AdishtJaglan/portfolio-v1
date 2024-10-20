@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import {
   FiMail,
   FiUser,
@@ -29,6 +30,7 @@ export default function ContactMeForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    toast.info("This might take a bit!");
 
     const data = {
       username: formData.name.trim(),
@@ -42,9 +44,13 @@ export default function ContactMeForm() {
         `${import.meta.env.VITE_API_BASE_URL}/send-message`,
         data,
       );
-      console.log(response.data.message);
+      if (response.status === 200) {
+        toast.success("Message sent!");
+      }
+
       setFormData({ name: "", email: "", phoneNo: "", message: "" });
     } catch (error) {
+      toast.error("Error sending message, try later!");
       console.error(
         "Error sending message:",
         error.response ? error.response.data.message : error.message,

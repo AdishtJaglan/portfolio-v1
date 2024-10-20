@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 import Navbar from "../components/Navbar";
 import Landing from "../components/Landing";
 import About from "../components/About";
@@ -31,8 +32,6 @@ const useWindowSize = () => {
 
   return windowSize;
 };
-
-console.log(import.meta.env.VITE_API_BASE_URL);
 
 export default function Home() {
   const [showMore, setShowMore] = useState(false);
@@ -110,6 +109,18 @@ export default function Home() {
 
   return (
     <main className="min-w-screen min-h-screen">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <Navbar hoverColor={themeColor} accentColor={themeColor} />
       {width > breakpoint && <Sidebar accentColor={themeColor} />}
       <section
