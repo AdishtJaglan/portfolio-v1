@@ -42,7 +42,7 @@ export default function Home() {
     "bg-theme-1",
   ]);
   const { width } = useWindowSize();
-  const breakpoint = 748;
+  const breakpoint = 768;
 
   const handleClick = () => {
     setIsVisible(!isVisible);
@@ -108,8 +108,8 @@ export default function Home() {
 
   return (
     <main className="min-w-screen min-h-screen">
-      <Navbar hoverColor={themeColor} />
-      <Sidebar accentColor={themeColor} />
+      <Navbar hoverColor={themeColor} accentColor={themeColor} />
+      {width > breakpoint && <Sidebar accentColor={themeColor} />}
       <section
         id="landing-section"
         className="min-h-screen bg-light p-3 px-0 pt-[85px] transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]"

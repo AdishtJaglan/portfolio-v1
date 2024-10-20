@@ -70,7 +70,7 @@ export default function ContactMeForm() {
         <div className="w-full max-w-md px-6">
           <form
             onSubmit={handleSubmit}
-            className="relative z-50 overflow-hidden rounded-2xl bg-light/90 p-8 shadow-lg backdrop-blur-lg dark:bg-white/10"
+            className="relative overflow-hidden rounded-2xl bg-light/90 p-8 shadow-lg backdrop-blur-lg dark:bg-white/10"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-theme-4/10 to-light/30 opacity-50 dark:from-theme-4/30 dark:to-[#27272a]/30"></div>
             <div className="relative z-10">
