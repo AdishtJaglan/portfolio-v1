@@ -146,7 +146,7 @@ export default function Home() {
 
       <section
         id="contact-section"
-        className="relative h-[95vh] bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]"
+        className="relative h-[95vh] bg-light py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]"
       >
         <ContactMeForm />
       </section>

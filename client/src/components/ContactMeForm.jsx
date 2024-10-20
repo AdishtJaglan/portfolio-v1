@@ -55,26 +55,27 @@ export default function ContactMeForm() {
   };
 
   return (
-    <div className="flex h-full w-full items-center justify-center">
-      <div className="relative h-full w-[15%] bg-light dark:bg-theme-4">
-        <div className="absolute -left-1/2 bottom-1/3 flex translate-x-10 -rotate-90 flex-col items-start justify-center leading-none tracking-tight">
-          <p className="text-[7.5rem] font-black text-dark dark:text-light">
+    <div className="flex h-full w-full flex-col items-center justify-center lg:flex-row">
+      <div className="relative h-24 w-full bg-light dark:bg-theme-4 lg:h-full lg:w-[15%]">
+        <div className="flex items-center justify-center p-4 leading-none tracking-tight lg:absolute lg:-left-1/2 lg:bottom-1/3 lg:translate-x-10 lg:-rotate-90 lg:flex-col lg:items-start lg:justify-start lg:p-0 xl:-left-1/2 xl:bottom-[40%]">
+          <p className="text-4xl font-black text-dark dark:text-light lg:text-[7.5rem]">
             CONTACT
           </p>
-          <p className="-mt-[0.1em] text-[7.5rem] font-black text-dark dark:text-light">
+          <p className="mx-2 text-4xl font-black text-dark dark:text-light lg:mx-0 lg:mt-[4rem] lg:text-[7.5rem]">
             ME<span className="text-light dark:text-theme-4">.</span>
           </p>
         </div>
       </div>
-      <div className="flex h-full w-[80%] items-center justify-center bg-theme-4 dark:bg-dark">
-        <div className="w-full max-w-md px-6">
+
+      <div className="flex h-full w-full items-center justify-center bg-theme-4 p-4 dark:bg-dark lg:w-[80%] lg:p-0">
+        <div className="w-full max-w-md px-4 lg:px-6">
           <form
             onSubmit={handleSubmit}
-            className="relative overflow-hidden rounded-2xl bg-light/90 p-8 shadow-lg backdrop-blur-lg dark:bg-white/10"
+            className="relative overflow-hidden rounded-2xl bg-light/90 p-6 shadow-lg backdrop-blur-lg dark:bg-white/10 lg:p-8"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-theme-4/10 to-light/30 opacity-50 dark:from-theme-4/30 dark:to-[#27272a]/30"></div>
             <div className="relative z-10">
-              <h1 className="mb-6 text-4xl font-bold text-dark/90 dark:text-white/80">
+              <h1 className="mb-6 text-3xl font-bold text-dark/90 dark:text-white/80 lg:text-4xl">
                 Get in Touch
               </h1>
               <div className="mb-6 space-y-4">
@@ -126,7 +127,7 @@ export default function ContactMeForm() {
               <div className="flex items-center justify-end">
                 <button
                   type="submit"
-                  className="group flex h-12 w-48 items-center justify-center rounded-lg bg-theme-4 px-6 text-white transition hover:bg-theme-4/90 dark:bg-gradient-to-r dark:from-theme-4 dark:to-theme-3 dark:hover:opacity-90"
+                  className="group flex h-12 w-full items-center justify-center rounded-lg bg-theme-4 px-6 text-white transition hover:bg-theme-4/90 dark:bg-gradient-to-r dark:from-theme-4 dark:to-theme-3 dark:hover:opacity-90 sm:w-48"
                 >
                   {!loading ? (
                     <span className="flex items-center">
