@@ -8,7 +8,7 @@ import img2 from "/clothing.png";
 import img3 from "/task-manager.png";
 import img4 from "/zerofai.png";
 
-function Carousel({ images }) {
+function Carousel({ images, breakpoint, width }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
 
@@ -50,7 +50,9 @@ function Carousel({ images }) {
           }}
         />
       </div>
-      <div className="h-[55%] w-[60%] rounded-lg border-2 border-light p-3 dark:border-theme-3">
+      <div
+        className={`${(width === breakpoint || width < breakpoint) && "w-[90%]"} h-[55%] rounded-lg border-2 border-light p-3 dark:border-theme-3 xs:w-[90%] md:w-[60%]`}
+      >
         <div className="relative h-full w-full overflow-hidden">
           {images.map((image, index) => (
             <div
@@ -60,7 +62,7 @@ function Carousel({ images }) {
               }`}
             >
               <div className="relative h-full w-full">
-                <span className="absolute left-4 top-4 z-40 text-8xl font-black text-black transition-opacity duration-300 group-hover:opacity-0">
+                <span className="absolute left-4 top-4 z-40 text-5xl font-black text-black transition-opacity duration-300 group-hover:opacity-0 md:text-8xl">
                   0{1 + index}
                 </span>
                 <p className="absolute inset-0 z-40 flex items-center justify-center text-5xl font-black text-black transition-opacity duration-300 group-hover:opacity-0">
@@ -105,7 +107,7 @@ function Carousel({ images }) {
   );
 }
 
-export default function ProjectCarousel() {
+export default function ProjectCarousel({ breakpoint, width }) {
   const carouselImages = [
     {
       img: img1,
@@ -133,48 +135,58 @@ export default function ProjectCarousel() {
     <div className="relative flex h-[100%] w-full items-center justify-center">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative flex h-full w-[100%] xl:w-[95%]">
-          <div className="bg-red flex h-full w-[85%] flex-col items-center justify-center gap-4 bg-theme-3 dark:bg-dark">
+          <div className="bg-red flex h-full flex-col items-center justify-center gap-4 bg-theme-3 dark:bg-dark xs:w-full sm:w-[85%]">
             <Carousel images={carouselImages} />
           </div>
-          <div className="relative w-[20%] bg-light dark:bg-theme-3">
-            <div className="absolute bottom-1/3 right-0 rotate-90 leading-none">
-              <p className="mb-[-0.2em] text-[9.5rem] font-black text-dark dark:text-light">
-                PRO
-              </p>
-              <p className="mt-[-1.5rem] text-[9.5rem] font-black text-dark dark:text-light">
-                JECTS<span className="text-light dark:text-theme-3">.</span>
-              </p>
-            </div>
-            <motion.div
-              className="absolute bottom-12 left-0 z-10 flex cursor-pointer flex-col items-center justify-evenly gap-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 2 }}
-              onClick={() => handleTopArrowClick()}
-            >
+
+          {!(breakpoint < width) && (
+            <p className="absolute left-6 top-8 text-6xl font-black text-dark dark:text-light">
+              PROJECTS<span className="text-theme-3">.</span>
+            </p>
+          )}
+
+          {breakpoint < width && (
+            <div className="relative w-[20%] bg-light dark:bg-theme-3">
+              <div className="absolute rotate-90 leading-none xs:-right-6 xs:bottom-1/2 sm:-right-3 md:right-0 md:translate-x-2 lg:bottom-1/2 lg:right-0 lg:-translate-x-4 xl:right-16 xl:translate-x-6">
+                <p className="font-black text-dark dark:text-light xs:text-[5rem] sm:mb-[-1rem] md:mb-[-1.3rem] md:text-[6rem] lg:mb-[-1.5rem] lg:text-[7rem] xl:mb-[-0.2em]">
+                  PRO
+                </p>
+                <p className="font-black text-dark dark:text-light xs:text-[5rem] sm:mb-[-1rem] md:mb-[-1.3rem] md:text-[6rem] lg:mb-[-1.5rem] lg:text-[7rem] xl:mt-[-1.5rem]">
+                  JECTS<span className="text-light dark:text-theme-3">.</span>
+                </p>
+              </div>
+
               <motion.div
-                animate={{ y: [0, 5, 0] }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                className="absolute bottom-12 left-0 z-10 flex cursor-pointer flex-col items-center justify-evenly gap-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 2 }}
+                onClick={() => handleTopArrowClick()}
               >
-                <IoIosArrowRoundUp className="h-auto w-10 text-dark dark:text-light" />
+                <motion.div
+                  animate={{ y: [0, 5, 0] }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <IoIosArrowRoundUp className="h-auto w-10 text-dark dark:text-light" />
+                </motion.div>
+                <motion.p
+                  className="text-lg font-light text-dark dark:text-light"
+                  animate={{ rotate: [90, 85, 90] }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  top
+                </motion.p>
               </motion.div>
-              <motion.p
-                className="text-lg font-light text-dark dark:text-light"
-                animate={{ rotate: [90, 85, 90] }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                top
-              </motion.p>
-            </motion.div>
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -183,4 +195,11 @@ export default function ProjectCarousel() {
 
 Carousel.propTypes = {
   images: PropTypes.array.isRequired,
+  breakpoint: PropTypes.number.isRequired,
+  width: PropTypes.number,
+};
+
+ProjectCarousel.propTypes = {
+  breakpoint: PropTypes.number.isRequired,
+  width: PropTypes.number,
 };

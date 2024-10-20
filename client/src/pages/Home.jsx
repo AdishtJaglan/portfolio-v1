@@ -119,7 +119,7 @@ export default function Home() {
 
       <section
         id="about-section"
-        className={`relative ${width < breakpoint ? "h-[180vh]" : "h-[90vh]"} bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]`}
+        className={`relative ${width < breakpoint ? "h-[160vh]" : "h-[90vh]"} bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]`}
       >
         {width < breakpoint ? (
           <>
@@ -139,7 +139,7 @@ export default function Home() {
         id="project-section"
         className="relative h-[95vh] bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]"
       >
-        <ProjectCarousel />
+        <ProjectCarousel breakpoint={breakpoint} width={width} />
       </section>
 
       <section
