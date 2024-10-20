@@ -32,6 +32,8 @@ const useWindowSize = () => {
   return windowSize;
 };
 
+console.log(import.meta.env.VITE_API_BASE_URL);
+
 export default function Home() {
   const [showMore, setShowMore] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -137,7 +139,7 @@ export default function Home() {
 
       <section
         id="project-section"
-        className="relative h-[95vh] bg-light p-3 py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]"
+        className="relative h-[95vh] bg-light px-0 py-4 transition-colors duration-300 dark:bg-dark xs:min-w-[110%] md:min-w-[100%]"
       >
         <ProjectCarousel breakpoint={breakpoint} width={width} />
       </section>

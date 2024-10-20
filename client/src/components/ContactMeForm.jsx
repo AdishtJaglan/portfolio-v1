@@ -39,7 +39,7 @@ export default function ContactMeForm() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/send-message",
+        `${import.meta.env.VITE_API_BASE_URL}/send-message`,
         data,
       );
       console.log(response.data.message);
